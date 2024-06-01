@@ -1,0 +1,3 @@
+alpha = @(t) 0.0004*t+0.00000001;
+wgn = randn(1, 10000);
+y = variablerandomorder(alpha, 0, 10000, wgn);

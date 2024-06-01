@@ -1,0 +1,13 @@
+N = 100000;
+T = (N-1) * 0.01;
+% alpha = @(t) 0.25*sin(0.25*t)+0.25;
+% alpha = @(t) 0.4/T*t+0.001;
+% alpha = @(t) 0.4/T*t-0.1;
+alpha = @(t) 0.4/T*t+0.001;
+% alpha = @(t) 0.2*sin(t/10) + 0.25;
+% alpha = @(t) 0.2*sawtooth(t/10) + 0.25;
+% alpha = @(t) 0.2*square(t/10) + 0.25;
+normal_pd = makedist('Normal');
+normal_noise = random(normal_pd, N, 1);
+output_noise = variablerandomorder(alpha, 0, N, normal_noise, 0.01);
+save("data/Ramp/mgn_ramp_0h5_0h9_predcorr_buf0_size20000.mat", "output_noise", "-mat");

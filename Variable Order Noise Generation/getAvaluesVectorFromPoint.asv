@@ -1,0 +1,8 @@
+function [ avaluesVector ] = getAvaluesVectorFromPoint( order, maxK, prevAValue, bufferStart )
+    avaluesVector = [prevAValue zeros(1, maxK)];
+    
+    for i = bufferStart+1:bufferStart+maxK
+        avaluesVector(i) = avaluesVector(i-1) * (1 - ((order + 1)/(i-1)));
+    end 
+end
+

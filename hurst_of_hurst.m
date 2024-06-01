@@ -1,0 +1,42 @@
+clear 
+h0 = 0.001;
+% Signal length
+N = 20000;
+% hs = [0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.999];
+hs = [0.1];
+
+
+% Create Normal Distribution
+normal_pd = makedist('Normal');
+
+% Generate random numbers based on distribution
+% figure;
+% hold on
+for h=hs
+    h
+    orders = zeros(N, 1) + h - 0.5;
+    normal_noise = random(normal_pd, N, 1);
+    output_noise = gen_frac_noise_lim_buf(normal_noise, orders, 5000, N);
+    norm_noise = (output_noise - min(output_noise))/(max(output_noise) - min(output_noise));
+    
+    norm_noise = 0.4 * norm_noise + 0.0001;
+    max(norm_noise)
+    min(norm_noise)
+    output_noise = variablerandomorder(norm_noise, 0, N, normal_noise, 1);
+
+%     output_noise = gen_frac_noise_lim_buf(normal_noise, norm_noise - 0.5, 5000, N);
+    if h == 0.001
+%         save("data/Stochastic/glfvobd verif/mgn_stochastic_0h0_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
+        save("data/Stochastic/predcorr verif/mgn_stochastic_0h0_predcorr_buf5000_size20000.mat", "output_noise", "-mat")
+        continue;
+    end
+    if h == 0.999
+%         save("data/Stochastic/glfvobd verif/mgn_stochastic_1h0_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
+        save("data/Stochastic/predcorr verif/mgn_stochastic_1h0_predcorr_buf5000_size20000.mat", "output_noise", "-mat")
+        continue;
+    end
+%     save("data/Stochastic/glfvobd verif/mgn_stochastic_0h" +(10*h)+ "_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
+    save("data/Stochastic/predcorr verif/mgn_stochastic_0h" +(10*h)+ "_predcorr_buf5000_size20000.mat", "output_noise", "-mat")
+end
+% plot(output_noise)
+% hold off
