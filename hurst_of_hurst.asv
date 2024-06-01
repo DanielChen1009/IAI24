@@ -3,7 +3,7 @@ h0 = 0.001;
 % Signal length
 N = 100000;
 % hs = [0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.999];
-hs = [0.75];
+hs = [0.5];
 
 
 % Create Normal Distribution
@@ -38,8 +38,7 @@ for h=hs
     end
 %     save("data/Stochastic/glfvobd verif/mgn_stochastic_0h" +(10*h)+ "_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
 %     save("data/Stochastic/predcorr verif/mgn_stochastic_0h" +(10*h)+ "_predcorr_buf5000_size20000.mat", "output_noise", "-mat")
-%     save("data/Stochastic/mgn_stochastic_0h5_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
-      save("data/Stochastic/mgn_stochastic_0h75_glfovbd_buf5000_size100000.mat", "output_noise", "-mat")
+    save("data/Stochastic/mgn_stochastic_0h5_predcor_buf5000_size100000.mat", "output_noise", "-mat")
 end
 % plot(output_noise)
 % hold off

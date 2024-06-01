@@ -1,0 +1,20 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: IAI24 Data
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Daniel
+    family-names: Chen
+    email: danielchen1009@berkeley.edu
+    name-particle: Daniel
+    affiliation: 'University of California, Berkeley'
+repository-code: 'https://github.com/DanielChen1009/IAI24'
+abstract: >-
+  Code for the IAI24 paper titled "Can We Characterize
+  Variabilities of Variabilities in Real Time?".
+date-released: '2024-05-31'

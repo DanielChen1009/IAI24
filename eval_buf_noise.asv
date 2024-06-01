@@ -4,7 +4,7 @@ buffer_sizes = [5000];
 % levels = ["0h0", "0h1", "0h2", "0h3", "0h4", "0h5", "0h6", "0h7", "0h8", "0h9", "1h0"];
 levels = ["0h0"];
 N = 100000;
-window_size = 1000;
+window_size = 100;
 const_h = 0.1;
 lgd = cell(length(buffer_sizes) + 1, 1);
 figure;
@@ -23,12 +23,12 @@ for level=levels
     %     file_name = "./data/Ramp/mgn_ramp_0h5_0h9_glfvobd_buf5000_size20000.mat";
     %     file_name = "./data/Ramp/mgn_ramp_0h5_0h9_predcorr_buf0_size20000.mat";
 %         file_name = "./data/Stochastic/predcorr/mgn_stochastic_"+ level + "_predcorr_buf5000_size20000.mat";
-        file_name = "./data/Stochastic/mgn_stochastic_0h75_glfovbd_buf5000_size100000.mat";
+        file_name = "./data/Stochastic/mgn_stochastic_0h5_glfovbd_buf5000_size100000.mat";
     %     file_name = "./data/Stochastic/hurst_preds.mat";
         hs = eval_noise(N, file_name, window_size);
         plot(hs, "LineWidth", 1)
 %         save("data/Stochastic/predcorr/results/" + level + "_estimation.mat", "hs", "N", "window_size", "-mat");
-        save("data/Stochastic/h_est_0h75_" + window_size + ".mat", "hs", "-mat");
+        save("data/Stochastic/h_est_0h5_" + window_size + ".mat", "hs", "-mat");
         lgd{i + 1} = strcat("Buffer Size: ", num2str(buffer_size));
     end
 end
